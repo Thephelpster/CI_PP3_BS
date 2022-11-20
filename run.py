@@ -29,31 +29,46 @@ def main_menu():
     player the option to either play the game straight away, open the settings
     menu or read the game rules.
     """
-    print("Please choose one of the following options")
-    main_menu = "1. Play Battleships.\n2. See the game rules.\n3. Settings."
+    print("Please choose one of the following options:")
+    main_menu = "1. Play Battleships.\n2. See the game rules.\n3. Settings.\n"
     main_menu_selection = input(main_menu)
 
     while main_menu_selection not in ("1, 2, 3"):
-        print("Please enter a 1, 2 or 3 to continue./n")
-        main_menu = "1. Play Battleships.\n2. See the game rules.\n3. Settings."
+        print("Please enter a 1, 2 or 3 to continue.\n")
+        main_menu = "1. Play Battleships.\n2. See game rules.\n3. Settings.\n"
         main_menu_selection = input(main_menu)
 
-    if sub_menu_selection == "1":
+    if main_menu_selection == "1":
         start_game()
 
-    elif sub_menu_selection == "2":
+    elif main_menu_selection == "2":
         game_rules()
 
-    elif sub_menu_selection == "3":
+    elif main_menu_selection == "3":
         settings_menu()
 
+    return main_menu_selection
+
 def settings_menu():
+    """
+    This function will give the player the option to choose the dificulty
+    either easy or hard. This will change the size of the board, how many
+    ships and how many moves can be made.
+    """
     pass
 
 def game_rules():
+    """
+    This function will explain the rules of Battleships to the player.
+    It will also take the player back to the main menu.
+    """
     pass
 
 def start_game():
+    """
+    This function will allow the player to input their name which will be
+    saved to a google sheet and accessed in another play through.
+    """
     pass
 
 def main():
