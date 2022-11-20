@@ -1,4 +1,7 @@
 #-------------------------------------------------------------------------------
+import sys
+import time
+from time import sleep
 
 def welcome():
     """
@@ -53,7 +56,7 @@ def settings_menu():
     """
     This function will give the player the option to choose the dificulty
     either easy or hard. This will change the size of the board, how many
-    ships and how many moves can be made.
+    ships.
     """
     pass
 
@@ -62,7 +65,19 @@ def game_rules():
     This function will explain the rules of Battleships to the player.
     It will also take the player back to the main menu.
     """
-    pass
+    welcome()
+    print("Game Rules:")
+    words1 = "You will take it in turns to sink each others battleships.\n"
+    words2 = "A hit will be marked as an 'X' and a miss as a '-'.\n"
+    words3 = "If you sink more ships than the computer you win.\n"
+    words4 = "You have 10 moves to win.\n"
+    words5 = "Good Luck.\n"
+    for char in words1, words2, words3, words4, words5:
+        sleep(0.2)
+        sys.stdout.write(char)
+        sys.stdout.flush()
+    input("Enter any key to continue...\n")
+    main_menu()
 
 def start_game():
     """
