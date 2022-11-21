@@ -69,8 +69,7 @@ def main_menu():
 def settings_menu():
     """
     This function will give the player the option to choose the dificulty
-    either easy or hard. This will change the size of the board, how many
-    ships.
+    either easy or hard. This will change the size of the board
     """
     pass
 
@@ -97,9 +96,44 @@ def game_rules():
 def start_game():
     """
     This function will allow the player to input their name which will be
-    saved to a google sheet and accessed in another play through.
+    saved to a google sheet and accessed in another play through or to play
+    as a guest.
+    """
+    cls()
+    welcome()
+    print("Play as a guest or enter your name to save your score:")
+    print("1.Play as Guest.\n2.Enter Name.\n")
+    start_game_selection = input(start_game)
+
+    while start_game not in (1, 2):
+        print("please enter a 1 or 2 to continue.\n")
+        print("1.Play as Guest.\n2.Enter Name.\n")
+        start_game_selection = input(start_game)
+
+    if start_game_selection == "1":
+        run_game()
+    
+    elif start_game_selection == "2":
+        input_name()
+
+    return start_game_selection
+
+Computer_Board=[['']* for x in range(8)]
+Player_Board=[['']* for x in range(8)]
+
+def run_game():
+    """
+    This funtion will run the game
+    """
+    print("A B C D E F G H")
+    pass
+
+def input_name():
+    """
+    This function will allow the player to enter their name.
     """
     pass
+
 
 def main():
     """
