@@ -29,3 +29,7 @@ The deployment terminal is set to 80 columns by 24 rows. That means that each li
 
 -----
 Happy coding!
+
+resources
+https://www.folkstalk.com/tech/how-to-make-a-typing-effect-in-python-with-code-examples/
+https://stackoverflow.com/questions/517970/how-to-clear-the-interpreter-console

@@ -1,6 +1,8 @@
 #-------------------------------------------------------------------------------
 import sys
 import time
+import os
+
 from time import sleep
 
 def slowprint(s):
@@ -8,6 +10,12 @@ def slowprint(s):
         sys. stdout.write(c)
         sys. stdout.flush()
         time.sleep(0.1)
+
+def cls():
+    """
+    This function will clear the console
+    """
+    os.system('cls' if os.name=='nt' else 'clear')
 
 def welcome():
     """
@@ -71,6 +79,7 @@ def game_rules():
     This function will explain the rules of Battleships to the player.
     It will also take the player back to the main menu.
     """
+    cls()
     welcome()
     print("Game Rules:")
     slowprint("You will take it in turns to sink each others battleships.\n")
@@ -80,6 +89,9 @@ def game_rules():
     slowprint("Good Luck.\n")
 
     input("Enter any key to continue...\n")
+    
+    cls()
+    welcome()
     main_menu()
 
 def start_game():
