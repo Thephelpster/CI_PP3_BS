@@ -3,9 +3,12 @@ import sys
 import time
 import os
 import gspread
-import random
+from random import randint
 from google.oauth2.service_account import Credentials
 from time import sleep
+
+COMPUTER_BOARD = [[" "] * 8 for x in range(8)]
+PLAYER_BOARD = [[" "] * 8 for i in range(8)]
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -69,7 +72,7 @@ def main_menu():
         main_menu_selection = input(main_menu)
 
     if main_menu_selection == "1":
-        difficulty_choice()
+        print_board()
 
     elif main_menu_selection == "2":
         game_rules()
@@ -103,7 +106,6 @@ def game_rules():
     welcome()
     main_menu()
 
-def play_game():
 pass
 
 def main():
