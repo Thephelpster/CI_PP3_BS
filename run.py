@@ -2,8 +2,11 @@
 import sys
 import time
 import os
+import gspread
 
+from google.oauth2.service_account import credentials
 from time import sleep
+
 
 def slowprint(s):
     for c in s + '\n':
@@ -43,15 +46,15 @@ def welcome():
 def main_menu():
     """
     This function will appear below the welcome screen and give the
-    player the option to either play the game straight away, open the settings
-    menu or read the game rules.
+    player the option to either play the game straight away or read the 
+    game rules.
     """
     print("Please choose one of the following options:")
-    main_menu = "1. Play Battleships.\n2. See the game rules.\n3. Settings.\n"
+    main_menu = "1. Play Battleships.\n2. See the game rules.\n"
     main_menu_selection = input(main_menu)
 
-    while main_menu_selection not in ("1, 2, 3"):
-        print("Please enter a 1, 2 or 3 to continue.\n")
+    while main_menu_selection not in ("1, 2"):
+        print("Please enter a 1 or 2 to continue.\n")
         main_menu = "1. Play Battleships.\n2. See game rules.\n3. Settings.\n"
         main_menu_selection = input(main_menu)
 
@@ -60,9 +63,6 @@ def main_menu():
 
     elif main_menu_selection == "2":
         game_rules()
-
-    elif main_menu_selection == "3":
-        settings_menu()
 
     return main_menu_selection
 
@@ -93,7 +93,7 @@ def game_rules():
     welcome()
     main_menu()
 
-def start_game():
+def name_guest():
     """
     This function will allow the player to input their name which will be
     saved to a google sheet and accessed in another play through or to play
@@ -103,30 +103,20 @@ def start_game():
     welcome()
     print("Play as a guest or enter your name to save your score:")
     print("1.Play as Guest.\n2.Enter Name.\n")
-    start_game_selection = input(start_game)
+    name_guest_selection = input(name_guest)
 
-    while start_game not in (1, 2):
+    while name_guest not in (1, 2):
         print("please enter a 1 or 2 to continue.\n")
         print("1.Play as Guest.\n2.Enter Name.\n")
-        start_game_selection = input(start_game)
+        name_guest_selection = input(name_guest)
 
-    if start_game_selection == "1":
+    if name_guest_selection == "1":
         run_game()
     
-    elif start_game_selection == "2":
+    elif name_guest_selection == "2":
         input_name()
 
-    return start_game_selection
-
-Computer_Board=[['']* for x in range(8)]
-Player_Board=[['']* for x in range(8)]
-
-def run_game():
-    """
-    This funtion will run the game
-    """
-    print("A B C D E F G H")
-    pass
+    return name_guest_selection
 
 def input_name():
     """
