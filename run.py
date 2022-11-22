@@ -122,8 +122,8 @@ def build_board(board):
 
 def build_ships(board):
     """
-    This function will randomly place the ships on the computer board
-    so the player can't see them.
+    This function will tell the player how to select a location to
+    'fire' on.
     """
     row = input("Please choose the row 1-5.\n")
     while row not in "12345":
@@ -136,6 +136,11 @@ def build_ships(board):
         column = input("Please choose the column A-E.\n")
     return int(row)-1,let_to_num[column]
 
+def ship_locations():
+"""
+This function will randomly place the ships on the computer board 
+so that the player cant see them.
+"""
 pass
 
 def main():
