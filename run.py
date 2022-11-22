@@ -3,10 +3,20 @@ import sys
 import time
 import os
 import gspread
-
-from google.oauth2.service_account import credentials
+import random
+from google.oauth2.service_account import Credentials
 from time import sleep
 
+SCOPE = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/drive"
+    ]
+
+CREDS = Credentials.from_service_account_file('creds.json')
+SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+SHEET = GSPREAD_CLIENT.open('game_difficulty')
 
 def slowprint(s):
     for c in s + '\n':
@@ -59,7 +69,7 @@ def main_menu():
         main_menu_selection = input(main_menu)
 
     if main_menu_selection == "1":
-        start_game()
+        difficulty_choice()
 
     elif main_menu_selection == "2":
         game_rules()
@@ -93,37 +103,8 @@ def game_rules():
     welcome()
     main_menu()
 
-def name_guest():
-    """
-    This function will allow the player to input their name which will be
-    saved to a google sheet and accessed in another play through or to play
-    as a guest.
-    """
-    cls()
-    welcome()
-    print("Play as a guest or enter your name to save your score:")
-    print("1.Play as Guest.\n2.Enter Name.\n")
-    name_guest_selection = input(name_guest)
-
-    while name_guest not in (1, 2):
-        print("please enter a 1 or 2 to continue.\n")
-        print("1.Play as Guest.\n2.Enter Name.\n")
-        name_guest_selection = input(name_guest)
-
-    if name_guest_selection == "1":
-        run_game()
-    
-    elif name_guest_selection == "2":
-        input_name()
-
-    return name_guest_selection
-
-def input_name():
-    """
-    This function will allow the player to enter their name.
-    """
-    pass
-
+def play_game():
+pass
 
 def main():
     """
