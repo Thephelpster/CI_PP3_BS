@@ -7,8 +7,8 @@ from random import randint
 from google.oauth2.service_account import Credentials
 from time import sleep
 
-COMPUTER_BOARD = [[" "] * 8 for x in range(8)]
-PLAYER_BOARD = [[" "] * 8 for i in range(8)]
+COMPUTER_BOARD = [[" "] * 5 for x in range(5)]
+PLAYER_BOARD = [[" "] * 5 for i in range(5)]
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -105,6 +105,36 @@ def game_rules():
     cls()
     welcome()
     main_menu()
+
+def build_board(board):
+    """
+    This function will print the board using the constant varibles from 
+    the top of the page. 
+    """
+    print("  A B C D E")
+    print("  _________")
+    row_num = 1
+    for row in board:
+        print("%d|%s|" % (row_num, "|".join(row)))
+        row_num += 1
+    
+    let_to_num = {"A":1, "B":2, "C":3, "D":4, "E":5}
+
+def build_ships(board):
+    """
+    This function will randomly place the ships on the computer board
+    so the player can't see them.
+    """
+    row = input("Please choose the row 1-5.\n")
+    while row not in "12345":
+        print("Please enter a number 1-5.\n")
+        row = input("Please choose the row 1-8.\n")
+    
+    column = input("Please choose the column A-E.\n")
+    while column not in "ABCDE":
+        print("Please enter a letter A-E.\n")
+        column = input("Please choose the column A-E.\n")
+    return int(row)-1,let_to_num[column]
 
 pass
 
