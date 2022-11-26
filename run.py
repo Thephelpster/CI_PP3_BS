@@ -83,7 +83,7 @@ def main_menu():
 
     while main_menu_selection not in ("1, 2"):
         print("Please enter a 1 or 2 to continue.\n")
-        main_menu = "1. Play Battleships with chosen size.\n2. See game rules.\n"
+        main_menu = "1. Play Battleships.\n2. See game rules.\n"
         main_menu_selection = input(main_menu)
 
     if main_menu_selection == "1":
@@ -155,6 +155,7 @@ def place_ships():
             ship_location = [ship_row], [ship_column]
             SHIP_PLACEMENT.append(ship_location)
             ships_placed += 1
+            print("You have 4 ships to try and destory, good luck!")
     else:
         SHIPS = 8
         while ships_placed != SHIPS:
@@ -162,6 +163,7 @@ def place_ships():
             ship_column = randint(1, Y)
             ship_location = [ship_row], [ship_column]
             ships_placed += 1
+            print("you have 8 ships to try and destory, good luck!")
 
 
 def player_choice():
@@ -169,7 +171,7 @@ def player_choice():
     This function will take the player guesses and compare against the placed
     ships and mark whether its a hit or a miss.
     """
-    
+
     pass
 
 
