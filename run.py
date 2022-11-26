@@ -125,10 +125,33 @@ def get_board_size():
     return Y
     
 
+def make_board():
+    """
+    This function creates the custom board from the board size function.
+    """
+    letters = APLHABET[0: (Y)]
+    print("     %s%s" % (" ", " ".join(letters)))
+    row_number = 1
+    for row in BOARD:
+        if row_number <= 9:
+            print("%d|%s|" % (row_number, "|".join(row)))
+        else:
+            print("%d|%s|" % (row_number, "|".join(row)))
+        row_number += 1
+
+
+def place_ships():
+    pass
+
+
+
 def play_game():
     """
     This function will play the game in the correct order
     """
+    get_board_size()
+    make_board()
+    place_ships()
     pass
 
 
