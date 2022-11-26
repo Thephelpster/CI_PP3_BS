@@ -59,7 +59,7 @@ while True:
     if BOARD_SIZE.isdigit():
         BOARD_SIZE = int(BOARD_SIZE)
         if BOARD_SIZE > 1 and BOARD_SIZE <= 10:
-            print(f"Nice, you chosen a {BOARD_SIZE}X{BOARD_SIZE} size board.")
+            print(f"Nice, you chose a {BOARD_SIZE}X{BOARD_SIZE} size board.")
             print("")
             input("Enter any key to continue...\n")
             break
@@ -124,7 +124,7 @@ def get_board_size():
     cls()
     logo()
     for x in range(Y):
-        BOARD.append(["-"] * Y)
+        BOARD.append(["~"] * Y)
     return Y
     
 
@@ -155,7 +155,7 @@ def place_ships():
         while ships_placed != SHIPS:
             ship_row = randint(1, (Y))
             ship_column = randint(1, (Y))
-            ship_location = [ship_row, ship_column]
+            ship_location = [ship_row], [ship_column]
             SHIP_PLACEMENT.append(ship_location)
             ships_placed += 1
         print("You have 4 ships to try and destory, good luck!")
@@ -164,7 +164,7 @@ def place_ships():
         while ships_placed != SHIPS:
             ship_row = randint(1, (Y))
             ship_column = randint(1, (Y))
-            ship_location = [ship_row, ship_column]
+            ship_location = [ship_row], [ship_column]
             ships_placed += 1
         print("you have 8 ships to try and destory, good luck!")
 
@@ -174,6 +174,42 @@ def player_choice():
     This function will take the player guesses and compare against the placed
     ships and mark whether its a hit or a miss.
     """
+    global SHIPS_SUNK
+    for turn in range((Y*Y) // 2):
+        shots = int((Y*Y) // 2)
+        print("")
+        print(f"You have {SHIPS - SHIPS_SUNK} left.\n")
+        print(f"You have {shots - turn} shots left.\n")
+        guess_col = None
+        while True:
+            guess_col = input("Enter column letter:")
+            if guess_col.isalpha() and len(guess_col) == 1:
+                guess_col = guess_col.lower()
+                guess_col = ord(guess_col) - 96
+                break
+            else:
+                make_board()
+                print("Check the board for available spaces.\n")
+                continue
+        guess_row = None
+        while True:
+            guess_row = input("Enter a row number:\n")
+            if guess_row.isdigit():
+                guess_row + int(guess_row)
+                break
+            else:
+                make_board()
+                print("Check the board for available spaces.\n")
+                continue
+        row_guess = guess_row
+        column_guess = geuss_column
+        guess = [guess_row], [guess_column]
+        if guess in SHIP_PLACEMENT:
+            cls()
+            print("Good Work! That battleship didnt stand a chance!")
+            BOARD[row_guess - 1] [column_guess - 1] = "0"
+            SHIPS_SUNK += 1
+
 
     pass
 
@@ -227,5 +263,6 @@ BOARD = []
 SHIPS = 10
 APLHABET = "ABCDEFGHIJ"
 SHIP_PLACEMENT = []
+SHIPS_SUNK = 0
 
 main()
