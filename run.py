@@ -75,7 +75,7 @@ def main_menu():
     logo()
     """
     This function will appear below the welcome screen and give the
-    player the option to either play the game straight away or read the 
+    player the option to either play the game straight away or read the
     game rules.
     """
     print("Please choose one of the following options:")
@@ -112,7 +112,7 @@ def game_rules():
     slowprint("Good Luck.\n")
 
     input("Enter any key to continue...\n")
-    
+
     cls()
     main_menu()
 
@@ -126,7 +126,7 @@ def get_board_size():
     for x in range(Y):
         BOARD.append(["~"] * Y)
     return Y
-    
+
 
 def make_board():
     """
@@ -145,7 +145,7 @@ def make_board():
 
 def place_ships():
     """
-    This function will place the right amount of ships depending on what size 
+    This function will place the right amount of ships depending on what size
     board has been picked by the player.
     """
     ships_placed = 0
@@ -178,14 +178,14 @@ def player_choice():
     for turn in range((Y*Y) // 2):
         shots = int((Y*Y) // 2)
         print("")
-        print(f"You have {SHIPS - SHIPS_SUNK} left.\n")
+        print(f"You have {SHIPS - SHIPS_SUNK} ship left.\n")
         print(f"You have {shots - turn} shots left.\n")
-        guess_col = None
+        guess_column = None
         while True:
-            guess_col = input("Enter column letter:")
-            if guess_col.isalpha() and len(guess_col) == 1:
-                guess_col = guess_col.lower()
-                guess_col = ord(guess_col) - 96
+            guess_column = input("Enter column letter:\n")
+            if guess_column.isalpha() and len(guess_column) == 1:
+                guess_column = guess_column.lower()
+                guess_column = ord(guess_column) - 96
                 break
             else:
                 make_board()
@@ -195,23 +195,33 @@ def player_choice():
         while True:
             guess_row = input("Enter a row number:\n")
             if guess_row.isdigit():
-                guess_row + int(guess_row)
+                guess_row = int(guess_row)
                 break
             else:
                 make_board()
                 print("Check the board for available spaces.\n")
                 continue
-        row_guess = guess_row
-        column_guess = geuss_column
-        guess = [guess_row], [guess_column]
+        r_guess = guess_row
+        c_guess = guess_column
+        guess = [r_guess, c_guess]
         if guess in SHIP_PLACEMENT:
-            cls()
-            print("Good Work! That battleship didnt stand a chance!")
-            BOARD[row_guess - 1] [column_guess - 1] = "0"
+            print("Good Work! That battleship didnt stand a chance!\n")
+            BOARD[r_guess - 1][c_guess - 1] = "0"
             SHIPS_SUNK += 1
-
-
-    pass
+        elif (turn + 1) - shots == 0:
+            print("Damn it. They got the better of you this time\n")
+            print("Try again if you dare.\n")
+        elif (r_guess < 1 or r_guess > Y) or (c_guess < 1 or c_guess > Y):
+            print("Try shooting on the empty spaces on the board...\n")
+        elif (BOARD[r_guess - 1][c_guess - 1]) == "X" or "0":
+            print("You've tried that space already, try again.\n")
+        else:
+            print("You missed. Try again.\n")
+            BOARD[r_guess - 1][c_guess - 1] = "X"
+        if SHIPS_SUNK == SHIPS:
+            print("Well done you sunk all the battleships!\n")
+            break
+        turn += 1
 
 
 def play_game():
@@ -221,13 +231,14 @@ def play_game():
     get_board_size()
     make_board()
     place_ships()
+    player_choice()
     pass
 
 
 def restart_game():
     """
     This function will allow the player to restart the game from either the
-    end of a finshed game or at the begining if they decide to change the 
+    end of a finshed game or at the begining if they decide to change the
     size of the board.
     """
     print("Would you like to restart the game?")
@@ -243,6 +254,7 @@ def restart_game():
             print("argv was", sys.argv)
             print("sys.executable was", sys.executable)
             print("restart now")
+            os.execv(sys.executable, ['python'] + sys.argv)
             main()
 
         elif restart_game_selection == "2":
