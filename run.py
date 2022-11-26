@@ -120,6 +120,7 @@ def get_board_size():
     """
     This function will get the custom board size using the global varible 'Y'.
     """
+    cls()
     for x in range(Y):
         BOARD.append(["-"] * Y)
     return Y
@@ -130,7 +131,7 @@ def make_board():
     This function creates the custom board from the board size function.
     """
     letters = APLHABET[0: (Y)]
-    print("     %s%s" % (" ", " ".join(letters)))
+    print("%s%s" % (" ", " ".join(letters)))
     row_number = 1
     for row in BOARD:
         if row_number <= 9:
@@ -141,8 +142,35 @@ def make_board():
 
 
 def place_ships():
-    pass
+    """
+    This function will place the right amount of ships depending on what size 
+    board has been picked by the player.
+    """
+    ships_placed = 0
+    global SHIPS
+    if Y <= 4:
+        while ships_placed != SHIPS:
+            ship_row = randint(1, Y)
+            ship_column = randint(1, Y)
+            ship_location = [ship_row], [ship_column]
+            SHIP_PLACEMENT.append(ship_location)
+            ships_placed += 1
+    else:
+        SHIPS = 8
+        while ships_placed != SHIPS:
+            ship_row = randint(1, Y)
+            ship_column = randint(1, Y)
+            ship_location = [ship_row], [ship_column]
+            ships_placed += 1
 
+
+def player_choice():
+    """
+    This function will take the player guesses and compare against the placed
+    ships and mark whether its a hit or a miss.
+    """
+    
+    pass
 
 
 def play_game():
@@ -192,5 +220,6 @@ Y = BOARD_SIZE
 BOARD = []
 SHIPS = 10
 APLHABET = "ABCDEFGHIJ"
+SHIP_PLACEMENT = []
 
 main()
