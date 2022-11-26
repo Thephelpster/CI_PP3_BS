@@ -48,19 +48,20 @@ Display game name and creator.
 Allows the player to pick the board size.
 """
 
-print(" ")
+print("")
 print("                         By Jamie Phelps      ")
 print("")
 print("Welcome to Battleships!\n")
 print("First things first. Enter the size of board you'd like to play on:\n")
 print("A normal size board is 8X8 but a smaller board will be easier.\n")
 while True:
-    BOARD_SIZE = input("Please enter a board size between 1-10:")
+    BOARD_SIZE = input("Please enter a board size between 1-10:\n")
     if BOARD_SIZE.isdigit():
         BOARD_SIZE = int(BOARD_SIZE)
         if BOARD_SIZE > 1 and BOARD_SIZE <= 10:
-            print(f"Nice, you've chosen a {BOARD_SIZE} size board.")
-            print(" ")
+            print(f"Nice, you chosen a {BOARD_SIZE}X{BOARD_SIZE} size board.")
+            print("")
+            input("Enter any key to continue...\n")
             break
         else:
             print("Please enter a number between 1-10.\n")
@@ -121,6 +122,7 @@ def get_board_size():
     This function will get the custom board size using the global varible 'Y'.
     """
     cls()
+    logo()
     for x in range(Y):
         BOARD.append(["-"] * Y)
     return Y
@@ -131,7 +133,7 @@ def make_board():
     This function creates the custom board from the board size function.
     """
     letters = APLHABET[0: (Y)]
-    print("%s%s" % (" ", " ".join(letters)))
+    print(" %s%s" % (" ", " ".join(letters)))
     row_number = 1
     for row in BOARD:
         if row_number <= 9:
@@ -149,21 +151,22 @@ def place_ships():
     ships_placed = 0
     global SHIPS
     if Y <= 4:
+        SHIPS = 1
         while ships_placed != SHIPS:
-            ship_row = randint(1, Y)
-            ship_column = randint(1, Y)
-            ship_location = [ship_row], [ship_column]
+            ship_row = randint(1, (Y))
+            ship_column = randint(1, (Y))
+            ship_location = [ship_row, ship_column]
             SHIP_PLACEMENT.append(ship_location)
             ships_placed += 1
-            print("You have 4 ships to try and destory, good luck!")
+        print("You have 4 ships to try and destory, good luck!")
     else:
         SHIPS = 8
         while ships_placed != SHIPS:
-            ship_row = randint(1, Y)
-            ship_column = randint(1, Y)
-            ship_location = [ship_row], [ship_column]
+            ship_row = randint(1, (Y))
+            ship_column = randint(1, (Y))
+            ship_location = [ship_row, ship_column]
             ships_placed += 1
-            print("you have 8 ships to try and destory, good luck!")
+        print("you have 8 ships to try and destory, good luck!")
 
 
 def player_choice():
@@ -204,6 +207,7 @@ def restart_game():
             print("argv was", sys.argv)
             print("sys.executable was", sys.executable)
             print("restart now")
+            main()
 
         elif restart_game_selection == "2":
             break
