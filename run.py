@@ -21,30 +21,46 @@ def cls():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
-def welcome():
-    """
-    Add the welcome screen for the game.
-    Display game name and creator.
-    """
-    cls()
-
-    print(" ")
-    print("  ______              _     _     _           ")
-    print(" |   _  \            | |   | |   | |          ")
-    print(" |  (_)  |   _____   | |_  | |_  | |    ____  ")
-    print(" |   _  <   /  _  \  | __| | __| | |   / _  \ ")
-    print(" |  (_)  | |  (_)  | | |_  | |_  | |_ |   __/ ")
-    print(" |______/   \___/\_\ \___| \___| \___| \____| ")
-    print(" ")
-    print("     _____   ___       _                      ")
-    print("    /   __) |   |     (_)                     ")
-    print("    \   \   |   |___   _     ____      __     ")
-    print("     \   \  |   _   | | |   |  _  \  / __|    ")
-    print("    __\   \ |  | |  | | |_  | (_)  | \__ \    ")
-    print("   (______/ |__| |__| \___| |   __/  |___/    ")
-    print("                            |__|              ")
-    print(" ")
-    print("                         By Jamie Phelps      ")
+cls()
+"""
+Add the welcome screen for the game.
+Display game name and creator.
+Allows the player to pick the board size.
+"""
+print(" ")
+print("  ______              _     _     _           ")
+print(" |   _  \            | |   | |   | |          ")
+print(" |  (_)  |   _____   | |_  | |_  | |    ____  ")
+print(" |   _  <   /  _  \  | __| | __| | |   / _  \ ")
+print(" |  (_)  | |  (_)  | | |_  | |_  | |_ |   __/ ")
+print(" |______/   \___/\_\ \___| \___| \___| \____| ")
+print(" ")
+print("     _____   ___       _                      ")
+print("    /   __) |   |     (_)                     ")
+print("    \   \   |   |___   _     ____      __     ")
+print("     \   \  |   _   | | |   |  _  \  / __|    ")
+print("    __\   \ |  | |  | | |_  | (_)  | \__ \    ")
+print("   (______/ |__| |__| \___| |   __/  |___/    ")
+print("                            |__|              ")
+print(" ")
+print("                         By Jamie Phelps      ")
+print("")
+print("Welcome to Battleships!\n")
+print("First things first. Enter the size of board you'd like to play on:\n")
+print("A normal size board is 8X8 but a smaller board will be easier.\n")
+while True:
+    BOARD_SIZE = input("Please enter a board size between 1-10:")
+    if BOARD_SIZE.isdigit():
+        BOARD_SIZE = int(BOARD_SIZE)
+        if BOARD_SIZE > 1 and BOARD_SIZE <= 10:
+            print(f"Nice, you've chosen a {Y} size board.")
+            print(" ")
+            break
+        else:
+            print("Please enter a number between 1-10.\n")
+    else:
+        print("please enter only a number between 1-10")
+        continue
 
 
 def main_menu():
@@ -54,16 +70,16 @@ def main_menu():
     game rules.
     """
     print("Please choose one of the following options:")
-    main_menu = "1. Play Battleships.\n2. See the game rules.\n"
+    main_menu = "1. Play Battleships with chosen size.\n2. See the game rules.\n"
     main_menu_selection = input(main_menu)
 
     while main_menu_selection not in ("1, 2"):
         print("Please enter a 1 or 2 to continue.\n")
-        main_menu = "1. Play Battleships.\n2. See game rules.\n3. Settings.\n"
+        main_menu = "1. Play Battleships with chosen size.\n2. See game rules.\n3. Settings.\n"
         main_menu_selection = input(main_menu)
 
     if main_menu_selection == "1":
-        choose_board_size()
+        get_board_size()
 
     elif main_menu_selection == "2":
         game_rules()
@@ -79,7 +95,7 @@ def game_rules():
     cls()
     welcome()
     print("Game Rules:")
-    slowprint("First you will need to choose the size of the board.")
+    slowprint("Now you have chosen your size of board,")
     slowprint("You will take it in turns to sink each others battleships.\n")
     slowprint("A hit will be marked as an 'X' and a miss as a 'O'.\n")
     slowprint("If you sink all of the ships then you win.\n")
@@ -93,12 +109,21 @@ def game_rules():
     main_menu()
 
 
+def play_game():
+    pass
+
+
+def restart_game():
+    pass
+
+
 def main():
     """
     Run all program functions
     """
-    welcome()
     main_menu()
+    play_game()
+    restart_game()
 
 
 main()
