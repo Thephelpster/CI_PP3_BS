@@ -4,22 +4,8 @@ import time
 import os
 import gspread
 from random import randint
-from google.oauth2.service_account import Credentials
 from time import sleep
 
-COMPUTER_BOARD = [[" "] * 5 for x in range(5)]
-PLAYER_BOARD = [[" "] * 5 for i in range(5)]
-
-SCOPE = [
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/drive.file",
-    "https://www.googleapis.com/auth/drive"
-    ]
-
-CREDS = Credentials.from_service_account_file('creds.json')
-SCOPED_CREDS = CREDS.with_scopes(SCOPE)
-GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('game_difficulty')
 
 def slowprint(s):
     for c in s + '\n':
@@ -27,22 +13,26 @@ def slowprint(s):
         sys. stdout.flush()
         time.sleep(0.1)
 
+
 def cls():
     """
     This function will clear the console
     """
-    os.system('cls' if os.name=='nt' else 'clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 
 def welcome():
     """
     Add the welcome screen for the game.
     Display game name and creator.
     """
+    cls()
+
     print(" ")
     print("  ______              _     _     _           ")
     print(" |   _  \            | |   | |   | |          ")
-    print(" |  (_)  |   ____    | |_  | |_  | |    ____  ")
-    print(" |   _   <  /  _  \  | __| | __| | |   / _  \ ")
+    print(" |  (_)  |   _____   | |_  | |_  | |    ____  ")
+    print(" |   _  <   /  _  \  | __| | __| | |   / _  \ ")
     print(" |  (_)  | |  (_)  | | |_  | |_  | |_ |   __/ ")
     print(" |______/   \___/\_\ \___| \___| \___| \____| ")
     print(" ")
@@ -55,6 +45,7 @@ def welcome():
     print("                            |__|              ")
     print(" ")
     print("                         By Jamie Phelps      ")
+
 
 def main_menu():
     """
@@ -72,19 +63,13 @@ def main_menu():
         main_menu_selection = input(main_menu)
 
     if main_menu_selection == "1":
-        print_board()
+        choose_board_size()
 
     elif main_menu_selection == "2":
         game_rules()
 
     return main_menu_selection
 
-def settings_menu():
-    """
-    This function will give the player the option to choose the dificulty
-    either easy or hard. This will change the size of the board
-    """
-    pass
 
 def game_rules():
     """
@@ -94,10 +79,11 @@ def game_rules():
     cls()
     welcome()
     print("Game Rules:")
+    slowprint("First you will need to choose the size of the board.")
     slowprint("You will take it in turns to sink each others battleships.\n")
-    slowprint("A hit will be marked as an 'X' and a miss as a '-'.\n")
-    slowprint("If you sink more ships than the computer you win.\n")
-    slowprint("You have 10 moves to win.\n")
+    slowprint("A hit will be marked as an 'X' and a miss as a 'O'.\n")
+    slowprint("If you sink all of the ships then you win.\n")
+    slowprint("You have 10 shots to win.\n")
     slowprint("Good Luck.\n")
 
     input("Enter any key to continue...\n")
@@ -106,42 +92,6 @@ def game_rules():
     welcome()
     main_menu()
 
-def build_board(board):
-    """
-    This function will print the board using the constant varibles from 
-    the top of the page. 
-    """
-    print("  A B C D E")
-    print("  _________")
-    row_num = 1
-    for row in board:
-        print("%d|%s|" % (row_num, "|".join(row)))
-        row_num += 1
-    
-    let_to_num = {"A":1, "B":2, "C":3, "D":4, "E":5}
-
-def build_ships(board):
-    """
-    This function will tell the player how to select a location to
-    'fire' on.
-    """
-    row = input("Please choose the row 1-5.\n")
-    while row not in "12345":
-        print("Please enter a number 1-5.\n")
-        row = input("Please choose the row 1-8.\n")
-    
-    column = input("Please choose the column A-E.\n")
-    while column not in "ABCDE":
-        print("Please enter a letter A-E.\n")
-        column = input("Please choose the column A-E.\n")
-    return int(row)-1,let_to_num[column]
-
-def ship_locations():
-"""
-This function will randomly place the ships on the computer board 
-so that the player cant see them.
-"""
-pass
 
 def main():
     """
@@ -149,4 +99,6 @@ def main():
     """
     welcome()
     main_menu()
+
+
 main()
