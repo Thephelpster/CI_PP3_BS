@@ -19,3 +19,12 @@ def logo():
     print("                            |__|              ")
     print(" ")
     print("                         By Jamie Phelps      ")
+
+
+def cls():
+    """
+    This function will clear the console
+    """
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+
