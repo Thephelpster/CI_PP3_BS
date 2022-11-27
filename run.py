@@ -124,30 +124,62 @@ EASY_BOARD_COMP = [[' ']*4 for x in range(4)]
 
 def easy_board(board):
 
-    print(' A B C D')
-    print(' -------')
+    print('  A B C D')
+    print('  -------')
     row_num = 1
     for row in board:
         print("%d|%s|" % (row_num, "|".join(row)))
         row_num += 1
+
+
+MEDIUM_BOARD_PLAYER = [[' ']*6 for x in range(6)]
+MEDIUM_BOARD_COMP = [[' ']*6 for x in range(6)]
 
 
 def medium_board(board):
-    print(' A B C D E F')
-    print(' -----------')
+    print('  A B C D E F')
+    print('  -----------')
     row_num = 1
     for row in board:
         print("%d|%s|" % (row_num, "|".join(row)))
         row_num += 1
+
+
+HARD_BOARD_PLAYER = [[' ']*8 for x in range(8)]
+HARD_BOARD_COMP = [[' ']*8 for x in range(8)]
 
 
 def hard_board(board):
-    print(' A B C D E F G H')
-    print(' ---------------')
+    print('  A B C D E F G H')
+    print('  ---------------')
     row_num = 1
     for row in board:
         print("%d|%s|" % (row_num, "|".join(row)))
         row_num += 1
+
+
+def build_ships_easy(board):
+    for ship in range(3):
+        ship_row, ship_column = randint(0, 3), randint(0, 3)
+        while board [ship_row][ship_column] == "X":
+            ship_row, ship_column = randint(0, 3), randint(0, 3)
+        board[ship_row][ship_column] = "X"
+
+
+def build_ships_medium(board):
+    for ship in range(5):
+        ship_row, ship_column = randint(0, 5), randint(0, 5)
+        while board [ship_row][ship_column] == "X":
+            ship_row, ship_column = randint(0, 5), randint(0, 5)
+        board[ship_row][ship_column] = "X"
+
+
+def build_ships_hard(board):
+    for ship in range(6):
+        ship_row, ship_column = randint(0, 7), randint(0, 7)
+        while board [ship_row][ship_column] == "X":
+            ship_row, ship_column = randint(0, 7), randint(0, 7)
+        board[ship_row][ship_column] = "X"
 
 
 def main():
