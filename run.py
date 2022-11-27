@@ -28,3 +28,22 @@ def cls():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
+def slowprint(s):
+    for c in s + '\n':
+        sys. stdout.write(c)
+        sys. stdout.flush()
+        time.sleep(0.1)
+
+
+def run_game():
+    cls()
+    logo()
+
+    
+
+
+def main():
+    run_game()
+
+
+main()
