@@ -38,8 +38,24 @@ def slowprint(s):
 def run_game():
     cls()
     logo()
+    print("please choose one of the following options:\n")
+    run_game = "1. play game and choose board size 2. read the rules"
+    run_game_selection = input(run_game)
 
+    while run_game_selection not in ("1, 2"):
+        print("please enter a 1 or a 2 to continue")
+        run_game = "1. play game and choose board size 2. read the rules"
+        run_game_selection = input(run_game)
     
+    if run_game == "1":
+        choose_board_size()
+        
+    elif run_game == "2":
+        game_rules()
+
+    return run_game_selection
+
+
 
 
 def main():
