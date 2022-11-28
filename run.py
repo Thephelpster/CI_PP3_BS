@@ -47,21 +47,20 @@ def logo():
 
 cls()
 logo()
-#print("")
-#slowprint("                    Welcome to Battleships")
-#slowprint("       There are Klingon battleships out there captain!")
-#slowprint("  Out smart the Klingon commanders and destory all their ships!")
-#print("")
-#slowprint("Engagement Rules:\n")
-#slowprint("       First you will need to choose the size of the board.")
-#slowprint("  You will have either 4 or 8 attempts to destory the klingons.")
-#slowprint("       4 attempts if you choose 5 or less and 8 for more.")
-#slowprint("       A hit will be marked as an 'X' and a miss as a 'O'.")
-#slowprint("           If you destory all of the ships then you win.")
-#slowprint("                         Good Luck.\n")
+print("")
+slowprint("                    Welcome to Battleships")
+slowprint("       There are Klingon battleships out there Captain!")
+slowprint("  Out smart the Klingon commanders and destory all their ships!")
+print("")
+slowprint("Engagement Rules:\n")
+slowprint("       First you will need to choose the size of the board.")
+slowprint("     You will have multiple attempts to destory the klingons.")
+slowprint("       A hit will be marked as an 'X' and a miss as a 'O'.")
+slowprint("           If you destory all of the ships then you win.")
+slowprint("                         Good Luck.\n")
 
 while True:
-    BATTLEFIELD_SIZE = input("Enter the size of the battle field Captain:\n")
+    BATTLEFIELD_SIZE = input("Enter the size of the battlefield Captain:\n")
     if BATTLEFIELD_SIZE.isdigit():
         BATTLEFIELD_SIZE = int(BATTLEFIELD_SIZE)
         if BATTLEFIELD_SIZE > 1 and BATTLEFIELD_SIZE <= 10:
@@ -148,6 +147,8 @@ def pick_square():
             else:
                 board_printout()
                 print("Pick and empty spot on the board Captain.\n")
+                cls()
+                logo()
                 continue
         row_try = None
         while True:
@@ -156,7 +157,7 @@ def pick_square():
                 row_try = int(row_try)
                 cls()
                 logo()
-                break               
+                break
             else:
                 board_printout()
                 print("We can't go there Captain.\n")
@@ -186,6 +187,7 @@ def pick_square():
 
         else:
             print("Captain, that was a miss, try again sir.")
+            print("")
             BATTLEFIELD[row_try - 1][col_try - 1] = "O"
 
         if KLINGONS_DESTORYED == KLINGONS:
@@ -202,7 +204,7 @@ def start_game():
     board_printout()
     add_klingons()
     pick_square()
-#    restart_game()
+
 
 B = BATTLEFIELD_SIZE
 BATTLEFIELD = []
