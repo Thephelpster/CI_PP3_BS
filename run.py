@@ -76,7 +76,7 @@ while True:
 
 def collect_field_choice():
     for x in range(B):
-        BATTLEFIELD.append(["~"] * B)
+        BATTLEFIELD.append([" "] * B)
     return B
 
 
@@ -85,23 +85,40 @@ ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 def board_printout():
     let = ALPHABET[0: (B)]
-    print("         %s%s" % (" ", " ".join(let)))
+    print("                %s%s" % (" ", " ".join(let)))
     row_num = 1
     for row in BATTLEFIELD:
         if row_num <= 9:
-            print("        %d|%s|" % (row_num, "|".join(row)))
+            print("               %d|%s|" % (row_num, "|".join(row)))
         else:
-            print("       %d|%s|" % (row_num, "|".join(row)))
+            print("              %d|%s|" % (row_num, "|".join(row)))
         row_num += 1
     print("")
+
+
+def add_klingons():
+    klingon_num = 0
+    global KLINGONS
+    if B <= 3:
+        KLINGONS = 1
+        while klingon_num != KLINGONS:
+            klingon_row = randint(1, B)
+            klingon_column = randint(1, B)
+            klingon_location = [klingon_row, klingon_column]
+            KLINGON_PLACE.append(ship_location)
+            klingon_num += 1
 
 
 def start_game():
     collect_field_choice()
     board_printout()
+    add_klingons()
 
 
 B = BATTLEFIELD_SIZE
 BATTLEFIELD = []
+KLINGONS = 10
+KLINGON_PLACE = []
+
 
 start_game()
