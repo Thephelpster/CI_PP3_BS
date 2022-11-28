@@ -101,52 +101,59 @@ The flowchart shows the structure of the program.
 
 # Features
 ## Existing Features
+### Playable Game
+* The most important feature of this battleship game is that its a game that anyone can play and have fun.
+
+User Stories covered: 1, 6
+
 ### Logo
 * The logo appears at the top of the game everytime you start it.
 
-User stories covered:
+User stories covered: 3
 
 ![logo](./assets/readme-images/game-logo.png)
 
 ### Clear Function
 * The clear function allows the game to clear the console after everymove keeping the view clear and easy to see where you are in the game.
 
-User stories covered:
+User stories covered: 5
 
 ### Slow Print Function
 * the slow print function makes it look like someone is typing out the greeting and rules.
 
-User stories covered:
+User stories covered: 3
 
 ![slow-print](./assets/readme-images/slow-print.png)
 
 ### Greeting
 * The greeting welcomes the player to the game and explains whats happening.
 
-User stories covered:
+User stories covered: 3
 
 ![greeting](./assets/readme-images/greeting.png)
 
 ### Rules
-* The rules explains tot the player how the play battleships.
+* The rules explains to the player how the play battleships.
 
-User stories covered:
+User stories covered: 2
 
 ![rules](./assets/readme-images/rules.png)
 
 ### Board Size Choice
 * The board size choice allows the player to choose what size board they'll play the game on.
 
-User stories covered:
+User stories covered: 3, 4
 
 ![size](./assets/readme-images/size-choice.png)
 
 ### In-Game Messages
 * The in-game messages give the player feedback on how the game is going what what they need to do next.
 
-User stories covered:
+User stories covered: 3
 
 ![messages](./assets/readme-images/game-messages.png)
+
+### Restart Function
 
 ## Future Features
 * Score loging system
@@ -163,18 +170,58 @@ To test the game ran as i expected it to, I played through it multiple times bot
 
 ## Testing user stories
 
-1. 
+1. As a first time user, I want to be able to play a game of Battleships.
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
+| Game | play the game | enjoying playing battleships | enjoyed playing battleships |
 
+2. As a first time user, I want to be able to learn the rules of Battleships.
 
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| game rules | see the rules appear | read the rules | learn the rules |
 
+3. As a first time user, I want to see a nice design to the game.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| logo, slowprint, greeting, board size, messages | see all the designs | enjoy the game | enjoyed the game |
+
+4. As a returning user, I want to be able to change the size of the board for an extra challenge.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| board size | change the size of the game board | choose multiple sizes to play on | play on multiple size board |
+
+5. As a returning user, I want to be able to easily be able to see what move I'm on.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| clear function | clear the console automatically | clear the console to see game better | clears console to see game better |
+
+6. As the game desginer I want people to have a good time playing the game.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| play game | play the game | enjoyable gameplay | enjoy playing the game |
+
+7. As the game desginer I want people to be able to restart the game as much as they want.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| restart function | player can restart the game when finished | the game can either exit or restart | the game restarts or exits |
 
 ## Bugs
 | **Bug** | **Fix** |
 | ----------- | ----------- |
+| spacing error when played in heroku | added spaces to the front of the print()s |
+| board printed Y axis 2x as much as it should | code error where its interated through list twice |
+| various run issues | indentation checked and corrected |
+| code layout errors | making sure that each def had two spaces above |
 
+### Unfixed bugs
+The console doesnt clear the logo when running on heroku, not sure why this is but it clears as it should in the console in GitPod.
 
 # Deployment
 ## Heroku
@@ -218,7 +265,7 @@ The website was deployed using GitHub Pages by following these steps:
 All referances to Star Trek came from the TV show.
 
 ## Code and Design
-* Stack Over FLow - for the slow typing function basics.
+* Stack Over Flow - for the slow typing function basics.
 https://stackoverflow.com/questions/4099422/printing-slowly-simulate-typing
 
 * Youtube - video for the starting point for my Battleship game.

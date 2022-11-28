@@ -242,7 +242,7 @@ def restart():
     This function will start the game from inside the console without having
     to reload the page or use the run button.
     """
-    game = input("Type yes to play again or no to quit the game:\n").lower()
+    game = input("  Type yes to play again or no to quit the game:\n").lower()
     while True:
         if game == "no":
             exit()
@@ -252,7 +252,7 @@ def restart():
             print("restart now")
             os.execv(sys.executable, ["python"] + sys.argv)
         else:
-            print("Please type yes or no")
+            print("  Please type yes or no")
             restart()
 
 
