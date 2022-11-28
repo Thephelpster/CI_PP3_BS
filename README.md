@@ -2,7 +2,7 @@
 
 Developer : Jamie Phelps
 
-[Live Webpage]
+[Live Webpage](https://ci-pp3-bs-thephelpster.herokuapp.com/)
 
 # Table of Content
 
@@ -16,9 +16,6 @@ Developer : Jamie Phelps
     3. [User Stories](#user-stories)
 4. [Design](#design)
     1. [Design Choices](#design-choices)
-    2. [Colour](#colour)
-    3. [Fonts](#fonts)
-    4. [Wireframes](#wireframes)
 5. [Technologies Used](#technologies-used)
     1. [Languages](#languages)
     2. [Frameworks & Tools](#frameworks-&-tools)
@@ -26,14 +23,9 @@ Developer : Jamie Phelps
     1. [Existing Features](#existing-features)
     2. [Future Features](#future-features)
 7. [Testing](#validation)
-    1. [HTML Validation](#HTML-validation)
-    2. [CSS Validation](#CSS-validation)
-    3. [Accessibility](#accessibility)
-    4. [Mock up](#mock-up)
-    5. [Performance](#performance)
-    6. [Device testing](#performing-tests-on-various-devices)
-    7. [Browser Compatibility](#browser-compatability)
-    8. [Testing User Stories](#testing-user-stories)
+    1. [Device testing](#performing-tests-on-various-devices)
+    2. [Browser Compatibility](#browser-compatability)
+    3. [Testing User Stories](#testing-user-stories)
 8. [Bugs](#Bugs)
 9. [Deployment](#deployment)
 10. [Credits](#credits)
@@ -112,28 +104,54 @@ The flowchart shows the structure of the program.
 ### Logo
 * The logo appears at the top of the game everytime you start it.
 
+User stories covered:
+
+![logo](./assets/readme-images/game-logo.png)
+
 ### Clear Function
 * The clear function allows the game to clear the console after everymove keeping the view clear and easy to see where you are in the game.
+
+User stories covered:
 
 ### Slow Print Function
 * the slow print function makes it look like someone is typing out the greeting and rules.
 
+User stories covered:
+
+![slow-print](./assets/readme-images/slow-print.png)
+
 ### Greeting
 * The greeting welcomes the player to the game and explains whats happening.
+
+User stories covered:
+
+![greeting](./assets/readme-images/greeting.png)
 
 ### Rules
 * The rules explains tot the player how the play battleships.
 
+User stories covered:
+
+![rules](./assets/readme-images/rules.png)
+
 ### Board Size Choice
 * The board size choice allows the player to choose what size board they'll play the game on.
+
+User stories covered:
+
+![size](./assets/readme-images/size-choice.png)
 
 ### In-Game Messages
 * The in-game messages give the player feedback on how the game is going what what they need to do next.
 
+User stories covered:
+
+![messages](./assets/readme-images/game-messages.png)
 
 ## Future Features
 * Score loging system
 * A login function
+
 
 # Validation and Testing
 I have put the python code through PEP8 in the workspace where I wrote the code as the pep8online.com website was down.
@@ -159,13 +177,28 @@ To test the game ran as i expected it to, I played through it multiple times bot
 
 
 # Deployment
+## Heroku
+This application has been deployed from GitHub to Heroku by following the steps:
+
+1. Create or log in to your account at heroku.com
+2. Create a new app, add a unique app name (this project is named "ci-pp3-bs-thephelpster") and choose your region
+3. Click on create app
+4. Go to "Settings"
+5. Under Config Vars store any sensitive data you saved in .json file. Name 'Key' field, copy the .json file and paste it to 'Value' field. Also add a key 'PORT' and value '8000'.
+6. Add required buildpacks (further dependencies). For this project, I set up 'Python' and 'node.js' in that order.
+7. Go to "Deploy" and select "GitHub" in "Deployment method"
+8. To link up our Heroku app to our Github repository code enter your repository name, click 'Search' and then 'Connect' when it shows below
+9. Choose the branch you want to buid your app from
+10. If prefered, click on "Enable Automatic Deploys", which keeps the app up to date with your GitHub repository
+11. Wait for the app to build. Once ready you will see the “App was successfully deployed” message and a 'View' button to take you to your deployed link.
+
+
 ## GitHub
 The website was deployed using GitHub Pages by following these steps:
 1. In the GitHub repository navigate to the Settings tab
 2. On the left hand menu select Pages
 3. For the source select Branch: main
 4. Once saved, GitHub will refresh and your website will be publishd from GitHub repository
-5. The link to your published website will appear: "Your site is published at https://thephelpster.github.io/CI_PP2_RPSLS/"
 
 ### Forking the GitHub Repository
 1. Go to the GitHub repository
@@ -201,51 +234,3 @@ I'd like to thank these people who gave me all the help and support I needed to 
 * Mo Shami, my mentor, for all the guidance, help and keeping me from giving up when the code wasn't working out the way I wanted.
 
 * Kate for being my rock when I was struggling to keep going with the course and keeping me sane.
-
-
-
-
-
-
-
-
-
-
-
-
-
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-Welcome Thephelpster,
-
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
-
-## Reminders
-
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
-
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
-
-resources
-https://www.folkstalk.com/tech/how-to-make-a-typing-effect-in-python-with-code-examples/
-https://stackoverflow.com/questions/517970/how-to-clear-the-interpreter-console
