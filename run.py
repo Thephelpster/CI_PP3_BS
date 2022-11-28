@@ -53,8 +53,8 @@ def logo():
 cls()
 logo()
 """
-This is the first part that the player sees and explains the rules, it 
-also lets them select the size of the board. The rules arre also printed 
+This is the first part that the player sees and explains the rules, it
+also lets them select the size of the board. The rules arre also printed
 to the console slowly as if they were being type.
 """
 print("")
@@ -68,9 +68,10 @@ slowprint("     You will have multiple attempts to destory the klingons.")
 slowprint("       A hit will be marked as an 'X' and a miss as a 'O'.")
 slowprint("           If you destory all of the ships then you win.")
 slowprint("                         Good Luck.\n")
-
+print("")
+print("  Enter the size of the battlefield Captain:\n")
 while True:
-    BATTLEFIELD_SIZE = input("  Enter the size of the battlefield Captain:\n")
+    BATTLEFIELD_SIZE = input("  Choose from '2, 3, 4, 5, 6, 7, 8, 9 or 10'")
     if BATTLEFIELD_SIZE.isdigit():
         BATTLEFIELD_SIZE = int(BATTLEFIELD_SIZE)
         if BATTLEFIELD_SIZE > 1 and BATTLEFIELD_SIZE <= 10:
@@ -189,7 +190,7 @@ def pick_square():
         guess = [row_try, col_try]
         if guess in KLINGON_PLACE:
             print("  Good job Captain, you've destroyed a Klingon") 
-            print("Battleship!\n")
+            print("  Battleship!\n")
             BATTLEFIELD[row_try - 1][col_try - 1] = "X"
             KLINGONS_DESTORYED += 1
 

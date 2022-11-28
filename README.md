@@ -110,14 +110,25 @@ The flowchart shows the structure of the program.
 # Features
 ## Existing Features
 ### Logo
+* The logo appears at the top of the game everytime you start it.
+
+### Clear Function
+* The clear function allows the game to clear the console after everymove keeping the view clear and easy to see where you are in the game.
+
+### Slow Print Function
+* the slow print function makes it look like someone is typing out the greeting and rules.
 
 ### Greeting
+* The greeting welcomes the player to the game and explains whats happening.
 
 ### Rules
+* The rules explains tot the player how the play battleships.
 
 ### Board Size Choice
+* The board size choice allows the player to choose what size board they'll play the game on.
 
 ### In-Game Messages
+* The in-game messages give the player feedback on how the game is going what what they need to do next.
 
 
 ## Future Features
