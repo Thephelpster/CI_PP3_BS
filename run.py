@@ -6,7 +6,12 @@ import sys
 from random import randint
 
 
+# The orginal code came from StackOverFlow
 def slowprint(s):
+    """
+    This function slows the way the prints are typed out making it look
+    as though someone is typing it out. 
+    """
     for c in s + '\n':
         sys. stdout.write(c)
         sys. stdout.flush()
@@ -47,6 +52,11 @@ def logo():
 
 cls()
 logo()
+"""
+This is the first part that the player sees and explains the rules, it 
+also lets them select the size of the board. The rules arre also printed 
+to the console slowly as if they were being type.
+"""
 print("")
 slowprint("                    Welcome to Battleships")
 slowprint("       There are Klingon battleships out there Captain!")
@@ -87,6 +97,10 @@ ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
 def board_printout():
+    """
+    This function builds the board size that the player has selected and
+    adds space around it to make it easier to see.
+    """
     let = ALPHABET[0: (B)]
     print("                        %s%s" % (" ", " ".join(let)))
     row_num = 1
@@ -100,6 +114,10 @@ def board_printout():
 
 
 def add_klingons():
+    """
+    This function decided how many klingons the player will face and how
+    many shots they get depending on the board size.
+    """
     klingon_num = 0
     global KLINGONS
     if B <= 3:
@@ -129,6 +147,12 @@ def add_klingons():
 
 
 def pick_square():
+    """
+    This function is the main logic for the game. it will take the inputs
+    from the player and add them to the board depending on whether its a hit
+    or a miss and giving feedback to the player so they know whats happening
+    in the game.
+    """
     global KLINGONS_DESTORYED
     for trys in range((B*B) // 2):
         shots = int((B*B) // 2)
@@ -200,6 +224,10 @@ def pick_square():
 
 
 def start_game():
+    """
+    This function allows the game to fun in the correct order and gives the
+    ability to add more functions easly,
+    """
     collect_field_choice()
     board_printout()
     add_klingons()
