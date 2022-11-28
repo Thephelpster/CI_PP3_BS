@@ -71,7 +71,7 @@ slowprint("                         Good Luck.\n")
 print("")
 print("  Enter the size of the battlefield Captain:\n")
 while True:
-    BATTLEFIELD_SIZE = input("  Choose from '2, 3, 4, 5, 6, 7, 8, 9 or 10'")
+    BATTLEFIELD_SIZE = input("  Choose from '2, 3, 4, 5, 6, 7, 8, 9 or 10'\n")
     if BATTLEFIELD_SIZE.isdigit():
         BATTLEFIELD_SIZE = int(BATTLEFIELD_SIZE)
         if BATTLEFIELD_SIZE > 1 and BATTLEFIELD_SIZE <= 10:
