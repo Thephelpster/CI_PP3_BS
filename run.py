@@ -189,7 +189,7 @@ def pick_square():
                 continue
         guess = [row_try, col_try]
         if guess in KLINGON_PLACE:
-            print("  Good job Captain, you've destroyed a Klingon") 
+            print("  Good job Captain, you've destroyed a Klingon")
             print("  Battleship!\n")
             BATTLEFIELD[row_try - 1][col_try - 1] = "X"
             KLINGONS_DESTORYED += 1
@@ -236,6 +236,26 @@ def start_game():
     pick_square()
 
 
+# The orginal code came from StackOverFlow
+def restart():
+    """
+    This function will start the game from inside the console without having
+    to reload the page or use the run button.
+    """
+    game = input("Type yes to play again or no to quit the game:\n").lower()
+    while True:
+        if game == "no":
+            exit()
+        elif game == "yes":
+            print("argv was", sys.argv) 
+            print("sys.executable was", sys.executable)
+            print("restart now")
+            os.execv(sys.executable, ["python"] + sys.argv)
+        else:
+            print("Please type yes or no")
+            restart()
+
+
 B = BATTLEFIELD_SIZE
 BATTLEFIELD = []
 KLINGON_PLACE = []
@@ -244,3 +264,4 @@ KLINGONS_DESTORYED = 0
 
 
 start_game()
+restart()
