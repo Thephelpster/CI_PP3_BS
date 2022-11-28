@@ -148,6 +148,7 @@ To test the game ran as i expected it to, I played through it multiple times bot
 
 
 # Deployment
+## GitHub
 The website was deployed using GitHub Pages by following these steps:
 1. In the GitHub repository navigate to the Settings tab
 2. On the left hand menu select Pages
@@ -168,13 +169,11 @@ The website was deployed using GitHub Pages by following these steps:
 6. Type git clone and paste the URL from the clipboard ($ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY)
 7. Press Enter to create your local clone
 # Credits
-Images and text not referenced below is owned and created by the developer.
 
 ## Content
-
+All referances to Star Trek came from the TV show.
 
 ## Code and Design
-
 * Stack Over FLow - for the slow typing function basics.
 https://stackoverflow.com/questions/4099422/printing-slowly-simulate-typing
 
