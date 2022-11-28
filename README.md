@@ -154,6 +154,11 @@ User stories covered: 3
 ![messages](./assets/readme-images/game-messages.png)
 
 ### Restart Function
+* Last function added to the game was the ablitly to restart the game when finished or to exit the game.
+
+User stories covered: 7
+
+![restart](./assets/readme-images/restart.png)
 
 ## Future Features
 * Score loging system
