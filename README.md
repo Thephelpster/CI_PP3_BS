@@ -34,28 +34,28 @@ Developer : Jamie Phelps
 11. [Acknowledgements](#acknowledgements)
 
 # Project Description
-This is the classic Battleship game that i have given a Star Trek feel to. Players can play as Starfleet as they try to attack Klingon ships.
+This is like the classic Battleship game with a Star Trek twist. Players can play as a Starfleet Captain as they defend against a Klingon attack.
 
 
 # Project Goals
-* Play a game of battleships against the computer.
-* Use different sized board to change difficulty.
+* Play a game of Battleships against the computer,
+* Use different sized boards to change the difficulty level,
 * Learn how to play Battleships.
 
 ## User Goals
-* To play as many games of Battleships as I want.
+* To play as many games of Battleships as I want,
 * To have a clear game space to see how the board looks.
 
 ## Site Owner Goals
-* For players to enjoy a game of battleships as many times as they want.
-* To leave the player witha good feeling after they've played the game.
+* For players to enjoy a game of Battleships as many times as they want,
+* To leave the player with a good feeling after they've played the game.
 
 
 # User Experience
 
 ## Target Audience
-* Battleship game fans.
-* Star Trek fans.
+* Battleship game fans,
+* Star Trek fans,
 * Anyone who wants a fun little game to play.
 
 ## User Requirements and Expectations
@@ -63,22 +63,22 @@ This is the classic Battleship game that i have given a Star Trek feel to. Playe
 
 ## User Stories
 ### First Time User
-1. As a first time user, I want to be able to play a game of Battleships.
-2. As a first time user, I want to be able to learn the rules of Battleships.
+1. As a first time user, I want to be able to play a game of Battleships,
+2. As a first time user, I want to be able to learn the rules of Battleships,
 3. As a first time user, I want to see a nice design to the game.
 
 ### Returning User
-4. As a returning user, I want to be able to change the size of the board for an extra challenge.
-5. As a returning user, I want to be able to easily be able to see what move I'm on.
+4. As a returning user, I want to be able to change the size of the board for an extra challenge,
+5. As a returning user, I want to be able to easily see what move I'm on.
 
 ### Website Owner
-6. As the game desginer I want people to have a good time playing the game.
-7. As the game desginer I want people to be able to restart the game as much as they want.
+6. As the game designer, I want people to have a good time playing the game,
+7. As the game designer, I want people to be able to replay the game as much as they want.
 
 
 # Design
 ## Design Choices
-When designing the game I wanted to give they player something a bit nicer to look at than just the code repeated over and over again. This is why i added the logo in and why it appeared consistantly throughout the game.
+When designing the game I wanted to give the player something a bit nicer to look at than just the code repeated over and over again. This is why I added the logo in and why it appears consistantly throughout the game.
 
 ## Flowchart
 The flowchart shows the structure of the program.
@@ -97,14 +97,14 @@ The flowchart shows the structure of the program.
 * Diagrams.net
 
 ## Python Libraries
-* os - used to clear the terminal.
-* random - used to give a random board each play through.
+* os - used to clear the terminal,
+* random - used to give a random board each play through,
 * sys and time - used to add a typing effect to the rules and greeting.
 
 # Features
 ## Existing Features
 ### Playable Game
-* The most important feature of this battleship game is that its a game that anyone can play and have fun.
+* The most important feature of this battleship game is that it's a game that anyone can play and have fun.
 
 User Stories covered: 1, 6
 
@@ -116,26 +116,26 @@ User stories covered: 3
 ![logo](./assets/readme-images/game-logo.png)
 
 ### Clear Function
-* The clear function allows the game to clear the console after everymove keeping the view clear and easy to see where you are in the game.
+* The clear function allows the game to clear the console after every move, keeping the view clear and easy to see where you are in the game.
 
 User stories covered: 5
 
 ### Slow Print Function
-* the slow print function makes it look like someone is typing out the greeting and rules.
+* The slow print function makes it look like someone is typing out the greeting and rules.
 
 User stories covered: 3
 
 ![slow-print](./assets/readme-images/slow-print.png)
 
 ### Greeting
-* The greeting welcomes the player to the game and explains whats happening.
+* The greeting welcomes the player to the game and explains what's happening.
 
 User stories covered: 3
 
 ![greeting](./assets/readme-images/greeting.png)
 
 ### Rules
-* The rules explains to the player how the play battleships.
+* The rules explain how to play battleships.
 
 User stories covered: 2
 
@@ -149,7 +149,7 @@ User stories covered: 3, 4
 ![size](./assets/readme-images/size-choice.png)
 
 ### In-Game Messages
-* The in-game messages give the player feedback on how the game is going what what they need to do next.
+* The in-game messages give the player feedback on how the game is going and what they need to do next.
 
 User stories covered: 3
 
@@ -172,7 +172,7 @@ I have put the python code through PEP8 in the workspace where I wrote the code 
 
 No issues where flagged up apart from the spacing in the logo that make up the words 'BattleShips'.
 
-To test the game ran as i expected it to, I played through it multiple times both playing as is expected and trying to get it not to work.
+To test the game ran as expected, I played through it multiple times both as intended and trying to get it to not work to see if there were any issues that needed fixing. 
 
 
 ## Testing user stories
@@ -181,54 +181,54 @@ To test the game ran as i expected it to, I played through it multiple times bot
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
-| Game | play the game | enjoying playing battleships | enjoyed playing battleships |
+| Game | Play the game | Enjoy playing battleships | Enjoyed playing battleships |
 
 2. As a first time user, I want to be able to learn the rules of Battleships.
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
-| game rules | see the rules appear | read the rules | learn the rules |
+| Game rules | See the rules appear | Read the rules | Learn the rules |
 
 3. As a first time user, I want to see a nice design to the game.
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
-| logo, slowprint, greeting, board size, messages | see all the designs | enjoy the game | enjoyed the game |
+| Logo, Slowprint, Greeting, Board Size, Messages | See all the designs | Enjoy the game | Enjoyed the game |
 
 4. As a returning user, I want to be able to change the size of the board for an extra challenge.
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
-| board size | change the size of the game board | choose multiple sizes to play on | play on multiple size board |
+| Board size | Change the size of the game board | Choose multiple sizes to play on | Play on multiple size boards |
 
-5. As a returning user, I want to be able to easily be able to see what move I'm on.
-
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-| clear function | clear the console automatically | clear the console to see game better | clears console to see game better |
-
-6. As the game desginer I want people to have a good time playing the game.
+5. As a returning user, I want to be able to easily see what move I'm on.
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
-| play game | play the game | enjoyable gameplay | enjoy playing the game |
+| Clear function | Clear the console automatically | Clear the console to see the game better | Clears console to see the game better |
 
-7. As the game desginer I want people to be able to restart the game as much as they want.
+6. As the game designer I want people to have a good time playing the game.
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
-| restart function | player can restart the game when finished | the game can either exit or restart | the game restarts or exits |
+| Play the game | Play the game | Enjoy gameplay | Enjoy playing the game |
+
+7. As the game designer, I want people to be able to replay the game as much as they want.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Restart function | Player can replay the game when finished | The game can either exit or restart | The game restarts or exits |
 
 ## Bugs
 | **Bug** | **Fix** |
 | ----------- | ----------- |
-| spacing error when played in heroku | added spaces to the front of the print()s |
-| board printed Y axis 2x as much as it should | code error where its interated through list twice |
-| various run issues | indentation checked and corrected |
-| code layout errors | making sure that each def had two spaces above |
+| Spacing error when played in Heroku | Added spaces to the front of the print()s |
+| Board printed Y axis 2x as much as it should | Code error where it's iterated through the list twice |
+| Various run issues | Indentation checked and corrected |
+| Code layout errors | Making sure that each def had two spaces above |
 
 ### Unfixed bugs
-The console doesnt clear the logo when running on heroku, not sure why this is but it clears as it should in the console in GitPod.
+The console doesn't clear the logo when running on Heroku, not sure why this is but it clears as it should in the console in GitPod.
 
 # Deployment
 ## Heroku
