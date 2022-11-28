@@ -2,7 +2,18 @@ import os
 import time
 import sys
 from random import randint
-from time import sleep
+
+def slowprint(s):
+    for c in s + '\n':
+        sys. stdout.write(c)
+        sys. stdout.flush()
+        time.sleep(0.1)
+
+def cls():
+    """
+    This function will clear the console
+    """
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def logo():
@@ -26,164 +37,3 @@ def logo():
     print("                            |__|              ")
     print(" ")
     print("                         By Jamie Phelps      ")
-
-
-def cls():
-    """
-    This function will clear the console
-    """
-    os.system('cls' if os.name == 'nt' else 'clear')
-
-
-def slowprint(s):
-    for c in s + '\n':
-        sys. stdout.write(c)
-        sys. stdout.flush()
-        time.sleep(0.1)
-
-
-def run_game():
-    cls()
-    logo()
-    print("please choose one of the following options:\n")
-    run_game = "1. play game and choose board size\n2. read the rules\n"
-    run_game_selection = input(run_game)
-
-    while run_game_selection not in ("1, 2"):
-        print("please enter a 1 or a 2 to continue")
-        run_game = "1. play game and choose board size\n2. read the rules\n"
-        run_game_selection = input(run_game)
-    
-    if run_game_selection == "1":
-        board_size()
-        
-    elif run_game_selection == "2":
-        game_rules()
-
-    return run_game_selection
-
-
-def game_rules():
-    """
-    This function will explain the rules of Battleships to the player.
-    It will also take the player back to the main menu.
-    """
-    cls()
-    logo()
-    print("Game Rules:")
-    slowprint("First you will need to choose the size of the board.\n")
-    slowprint("You will take it in turns to sink each others battleships.\n")
-    slowprint("A hit will be marked as an 'X' and a miss as a 'O'.\n")
-    slowprint("If you sink all of the ships then you win.\n")
-    slowprint("You have 10 shots to win.\n")
-    slowprint("Good Luck.\n")
-
-    input("\nEnter any key to continue...\n")
-
-    cls()
-    logo()
-    run_game()
-
-
-def board_size():
-    cls()
-    logo()
-    print("please choose the size of board you want to play:\n")
-    board_size = "1. 4X4 2. 6X6 3. 8X8\n"
-    board_size_selection = input(board_size)
-
-    while board_size_selection not in ("4, 6, 8"):
-        print("please choose the size of board you want to play:\n")
-        board_size = "1. 4X4 2. 6X6 3. 8X8\n"
-        board_size_selection = input(board_size)
-
-    if board_size == "1":
-        easy_board()
-
-    elif board_size == "2":
-        medium_board()
-
-    elif board_size == "3":
-        hard_board()
-
-
-let_to_num = {
-    'A': 0,
-    'B': 1,
-    'C': 2,
-    'D': 3,
-    'E': 4,
-    'F': 5,
-    'G': 6,
-    'H': 7
-}
-
-EASY_BOARD_PLAYER = [[' ']*4 for x in range(4)]
-EASY_BOARD_COMP = [[' ']*4 for x in range(4)]
-
-
-def easy_board(board):
-
-    print('  A B C D')
-    print('  -------')
-    row_num = 1
-    for row in board:
-        print("%d|%s|" % (row_num, "|".join(row)))
-        row_num += 1
-
-
-MEDIUM_BOARD_PLAYER = [[' ']*6 for x in range(6)]
-MEDIUM_BOARD_COMP = [[' ']*6 for x in range(6)]
-
-
-def medium_board(board):
-    print('  A B C D E F')
-    print('  -----------')
-    row_num = 1
-    for row in board:
-        print("%d|%s|" % (row_num, "|".join(row)))
-        row_num += 1
-
-
-HARD_BOARD_PLAYER = [[' ']*8 for x in range(8)]
-HARD_BOARD_COMP = [[' ']*8 for x in range(8)]
-
-
-def hard_board(board):
-    print('  A B C D E F G H')
-    print('  ---------------')
-    row_num = 1
-    for row in board:
-        print("%d|%s|" % (row_num, "|".join(row)))
-        row_num += 1
-
-
-def build_ships_easy(board):
-    for ship in range(3):
-        ship_row, ship_column = randint(0, 3), randint(0, 3)
-        while board [ship_row][ship_column] == "X":
-            ship_row, ship_column = randint(0, 3), randint(0, 3)
-        board[ship_row][ship_column] = "X"
-
-
-def build_ships_medium(board):
-    for ship in range(5):
-        ship_row, ship_column = randint(0, 5), randint(0, 5)
-        while board [ship_row][ship_column] == "X":
-            ship_row, ship_column = randint(0, 5), randint(0, 5)
-        board[ship_row][ship_column] = "X"
-
-
-def build_ships_hard(board):
-    for ship in range(6):
-        ship_row, ship_column = randint(0, 7), randint(0, 7)
-        while board [ship_row][ship_column] == "X":
-            ship_row, ship_column = randint(0, 7), randint(0, 7)
-        board[ship_row][ship_column] = "X"
-
-
-def main():
-    run_game()
-
-
-main()
