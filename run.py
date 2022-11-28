@@ -10,7 +10,7 @@ from random import randint
 def slowprint(s):
     """
     This function slows the way the prints are typed out making it look
-    as though someone is typing it out. 
+    as though someone is typing it out.
     """
     for c in s + '\n':
         sys. stdout.write(c)
@@ -62,7 +62,7 @@ slowprint("                    Welcome to Battleships")
 slowprint("       There are Klingon battleships out there Captain!")
 slowprint("  Out smart the Klingon commanders and destory all their ships!")
 print("")
-slowprint("Engagement Rules:\n")
+slowprint("  Engagement Rules:\n")
 slowprint("       First you will need to choose the size of the board.")
 slowprint("     You will have multiple attempts to destory the klingons.")
 slowprint("       A hit will be marked as an 'X' and a miss as a 'O'.")
@@ -70,18 +70,18 @@ slowprint("           If you destory all of the ships then you win.")
 slowprint("                         Good Luck.\n")
 
 while True:
-    BATTLEFIELD_SIZE = input("Enter the size of the battlefield Captain:\n")
+    BATTLEFIELD_SIZE = input("  Enter the size of the battlefield Captain:\n")
     if BATTLEFIELD_SIZE.isdigit():
         BATTLEFIELD_SIZE = int(BATTLEFIELD_SIZE)
         if BATTLEFIELD_SIZE > 1 and BATTLEFIELD_SIZE <= 10:
-            print("Good work Captain.\n")
-            print("Lets show the Klingons how we do things in starfleet!\n")
+            print("  Good work Captain.\n")
+            print("  Lets show the Klingons how we do things in starfleet!\n")
             break
         else:
-            print("Captain, you must pick a number bewteen 1 and 10.\n")
+            print("  Captain, you must pick a number bewteen 1 and 10.\n")
     else:
-        print("Captain, you selection must be a number and no letters.\n")
-        print("It must also be no lower than 1 and no higher than 10.\n")
+        print("  Captain, you selection must be a number and no letters.\n")
+        print("  It must also be no lower than 1 and no higher than 10.\n")
         continue
 
 
@@ -157,26 +157,26 @@ def pick_square():
     for trys in range((B*B) // 2):
         shots = int((B*B) // 2)
         print("")
-        print(f"Captain, you've got {shots - trys} shots left.")
-        print(f"You've also got {KLINGONS - KLINGONS_DESTORYED} klingon")
-        print("ship left.\n")
+        print(f"  Captain, you've got {shots - trys} shots left.")
+        print(f"  You've also got {KLINGONS - KLINGONS_DESTORYED} klingon")
+        print("  ship left.\n")
         print("")
         col_try = None
         while True:
-            col_try = input("Captain, please enter a column letter:\n")
+            col_try = input("  Captain, please enter a column letter:\n")
             if col_try.isalpha() and len(col_try) == 1:
                 col_try = col_try.lower()
                 col_try = ord(col_try) - 96
                 break
             else:
                 board_printout()
-                print("Pick and empty spot on the board Captain.\n")
+                print("  Pick and empty spot on the board Captain.\n")
                 cls()
                 logo()
                 continue
         row_try = None
         while True:
-            row_try = input("and now a row number:\n")
+            row_try = input("  and now a row number:\n")
             if row_try.isdigit():
                 row_try = int(row_try)
                 cls()
@@ -184,40 +184,41 @@ def pick_square():
                 break
             else:
                 board_printout()
-                print("We can't go there Captain.\n")
+                print("  We can't go there Captain.\n")
                 continue
         guess = [row_try, col_try]
         if guess in KLINGON_PLACE:
-            print("Good job Captain, you've destroyed a Klingon Battleship!\n")
+            print("  Good job Captain, you've destroyed a Klingon") 
+            print("Battleship!\n")
             BATTLEFIELD[row_try - 1][col_try - 1] = "X"
             KLINGONS_DESTORYED += 1
 
         elif (trys + 1) - shots == 0:
-            print("Seems like the Klingons have out-maneuvered us this")
-            print("time Captain, withdraw at once!\n")
+            print("  Seems like the Klingons have out-maneuvered us this")
+            print("  time Captain, withdraw at once!\n")
 
         elif (row_try < 1 or row_try > B) or (col_try < 1 or col_try > B):
-            print("Captain, we can't shoot there. We can only engage in the")
-            print("designated area:\n")
-            print(f"Rows: 1-{B} and Columns: A-{ALPHABET [B - 1]}")
+            print("  Captain, we can't shoot there. We can only engage in the")
+            print("  designated area:\n")
+            print(f"  Rows: 1-{B} and Columns: A-{ALPHABET [B - 1]}")
 
         elif (BATTLEFIELD[row_try - 1][col_try - 1]) == "O":
-            print("Captain, we've already engaged at that location,")
-            print("try another.\n")
+            print("  Captain, we've already engaged at that location,")
+            print("  try another.\n")
 
         elif (BATTLEFIELD[row_try - 1][col_try - 1]) == "X":
-            print("Captain, we've already engaged at that location,")
-            print("try another.\n")
+            print("  Captain, we've already engaged at that location,")
+            print("  try another.\n")
 
         else:
-            print("Captain, that was a miss, try again sir.")
+            print("  Captain, that was a miss, try again sir.")
             print("")
             BATTLEFIELD[row_try - 1][col_try - 1] = "O"
 
         if KLINGONS_DESTORYED == KLINGONS:
             board_printout()
-            print("Good job Captain, all Klingon targets have been")
-            print("destoryed.\n")
+            print("  Good job Captain, all Klingon targets have been")
+            print("  destoryed.\n")
             break
         board_printout()
     trys += 1
