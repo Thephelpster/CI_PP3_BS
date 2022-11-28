@@ -43,11 +43,39 @@ def logo():
     print("                                             By Jamie Phelps      ")
 
 
-def main_menu():
-    cls()
-    logo()
-    print("                    Welcome to Battleships                      \n")
-    print("       There are Klingon battleships out there captain!         \n")
-    print("  Out smart the Klingon commanders and destory all their ships! \n")
-    print("      Commander, please choose one of the following options:    \n")
-    
+cls()
+logo()
+print("")
+slowprint("                    Welcome to Battleships                        ")
+slowprint("       There are Klingon battleships out there captain!           ")
+slowprint("  Out smart the Klingon commanders and destory all their ships!   ")
+slowprint("      Captain, please choose one of the following options:        ")
+print("")
+slowprint("Engagement Rules:\n")
+slowprint("       First you will need to choose the size of the board.       ")
+slowprint("  You will have either 4 or 8 attempts to destory the klingons.   ")
+slowprint("       4 attempts if you choose 5 or less and 8 for more.         ")
+slowprint("       A hit will be marked as an 'X' and a miss as a 'O'.        ")
+slowprint("           If you destory all of the ships then you win.          ")
+slowprint("                         Good Luck.                               ")
+while True:
+    BATTLEFIELD_SIZE = input("Enter the size of the battle field Captain:  \n")
+    if BATTLEFIELD_SIZE.isdigit():
+        BATTLEFIELD_SIZE = int(BATTLEFIELD_SIZE)
+        if BATTLEFIELD_SIZE > 1 and BATTLEFIELD_SIZE <= 10:
+            print("")
+            print(f"Captain, you have chosen a {B}X{B} battlefield \n")
+            break
+        else:
+            print("Captain, you must pick a number bewteen 1 and 10.\n")
+    else:
+        print("Captain, you selection must be a number and no letters.\n")
+        print("It must also be no lower than 1 and no higher than 10.\n")
+        continue
+
+
+
+
+
+B = BATTLEFIELD_SIZE
+BATTLEFIELD = []
