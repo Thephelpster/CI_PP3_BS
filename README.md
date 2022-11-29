@@ -83,6 +83,11 @@ When designing the game I wanted to give the player something a bit nicer to loo
 ## Flowchart
 The flowchart shows the structure of the program.
 
+<details>
+<summary>Flowchart</summary>
+<br>
+<img src="./assets/readme-images/flowchart.drawio.png" alt="Flowchart">
+</details>
 
 # Technologies Used
 ## Languages
@@ -113,7 +118,11 @@ User Stories covered: 1, 6
 
 User stories covered: 3
 
-![logo](./assets/readme-images/game-logo.png)
+<details>
+<summary>Logo</summary>
+<br>
+<img src="./assets/readme-images/game-logo.png" alt="Logo">
+</details>
 
 ### Clear Function
 * The clear function allows the game to clear the console after every move, keeping the view clear and easy to see where you are in the game.
@@ -125,42 +134,66 @@ User stories covered: 5
 
 User stories covered: 3
 
-![slow-print](./assets/readme-images/slow-print.png)
+<details>
+<summary>Slowprint</summary>
+<br>
+<img src="./assets/readme-images/slow-print.png" alt="Slowprint">
+</details>
 
 ### Greeting
 * The greeting welcomes the player to the game and explains what's happening.
 
 User stories covered: 3
 
-![greeting](./assets/readme-images/greeting.png)
+<details>
+<summary>Greeting</summary>
+<br>
+<img src="./assets/readme-images/greeting.png" alt="Greeting">
+</details>
 
 ### Rules
 * The rules explain how to play battleships.
 
 User stories covered: 2
 
-![rules](./assets/readme-images/rules.png)
+<details>
+<summary>Rules</summary>
+<br>
+<img src="./assets/readme-images/rules.png" alt="Rules">
+</details>
 
 ### Board Size Choice
 * The board size choice allows the player to choose what size board they'll play the game on.
 
 User stories covered: 3, 4
 
-![size](./assets/readme-images/size-choice.png)
+<details>
+<summary>Size-Choice</summary>
+<br>
+<img src="./assets/readme-images/size-choice.png" alt="Size-Choice">
+</details>
 
 ### In-Game Messages
 * The in-game messages give the player feedback on how the game is going and what they need to do next.
 
 User stories covered: 3
 
-![messages](./assets/readme-images/game-messages.png)
+<details>
+<summary>Messages</summary>
+<br>
+<img src="./assets/readme-images/game-messages.png" alt="Messages">
+</details>
 
 ### Restart Function
 * Last function added to the game was the ablitly to restart the game when finished or to exit the game.
 
 User stories covered: 7
 
-![restart](./assets/readme-images/restart.png)
+<details>
+<summary>Restart</summary>
+<br>
+<img src="./assets/readme-images/restart.png" alt="Restart">
+</details>
 
 ## Future Features
 * Score loging system
