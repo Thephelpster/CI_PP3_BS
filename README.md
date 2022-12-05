@@ -2,7 +2,7 @@
 
 ![logo2](./assets/readme-images/game-logo2.png)
 
-Developer : Jamie Phelps
+Developer : Jamie Phelps.
 
 [Live Webpage](https://ci-pp3-bs-thephelpster.herokuapp.com/)
 
